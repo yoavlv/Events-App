@@ -29,20 +29,24 @@
 
         </p>
 
+{% if user.is_authenticated %}
+{% if user == event.manager %}
 
-  </div>
-  <div class="card-footer text-muted">
-    <a href="{% url 'update-event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
-    <a href="{% url 'delete-event' event.id %}" class="btn btn-outline-danger btn-sm">delete Event</a>
+      </div>
+      <div class="card-footer text-muted">
+        <a href="{% url 'update-event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
+        <a href="{% url 'delete-event' event.id %}" class="btn btn-outline-danger btn-sm">delete Event</a>
 
-  </div>
-</div>
-
-
+      </div>
+    </div>
 
 
+    {% endif %}
+{% endif %}
 
-	<br/><br/>
+
+
+
 {% endfor %}
 
 
